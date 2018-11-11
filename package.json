@@ -2,6 +2,7 @@
   "name": "slack-demo",
   "scripts": {
     "dev": "next",
+    "test": "echo 'test'",
     "build": "next build",
     "start": "next start"
   },
