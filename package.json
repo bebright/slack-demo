@@ -4,6 +4,7 @@
     "dev": "next",
     "test": "echo 'test'",
     "build": "next build",
+    "travis": "rm -rf dist && mkdir -p dist && zip -r dist/server.zip . -x@exclude.lst",
     "start": "next start"
   },
   "dependencies": {
