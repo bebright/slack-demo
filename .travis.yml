@@ -26,6 +26,7 @@ deploy:
   bucket: bright-travis-deploy
   local-dir: dist
   acl: private
+  skip_cleanup: true
   on:
     repo: bebright/slack-demo
 notifications:
