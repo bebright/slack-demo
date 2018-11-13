@@ -3,7 +3,6 @@ sudo: false
 dist: trusty
 node_js:
 - '8'
-- '7'
 cache:
   yarn: true
   directories:
@@ -21,6 +20,7 @@ script:
 - yarn travis
 deploy:
   provider: s3
+  local_dir: dist
   access_key_id:
     secure: BNV0Be1GpZX6dXNfmob9/f+wvhXyvUNBK0Ucq+L3kkYARGlmpfyR1ZpcVbdDD8qNpBxrTQVgu0IVkFTvD/O0qZKBf7lLBQwNtcyyNX2SDJrAmbZFWoJ2sxi3iN3QdDwvgo1g/zo9Dzh5iOjGNsjiNqx+tlNE96fmiVM1ApPzienzOOuXeSP7MxESlNJkkRKmH1uM+Q3ePrZ3BYYAc1L63jlZTxLHQcM178HbxZ75lW+ogtmQt7qmt+veWkRI1H3Eia+0u3g4AnWJ1iRN1fF3Pq6j0HCwz/NCZ6rD1Z0WeWWhCDIpfPIKLSO4J+GRQMoTmrtJyXzAsPTb57LTmedv4c+XkBquRld1uIN8aerreHliT698NFLHhtWdSrgj3nSdjFC45+TK4bqzTMlTlPQBKc0xEdeGR3KBzYMW0N1MbBmlni3fT2I/T8z4LsVK6RIytrnN5HiMtsymxxC/l1gP7lUeL8YFsdM1lumBeVQUF9N1qDdzKzxBcOFelt6WUwUqwmc7lQ0Hh9mf3l/Upx4+bshn/cuGkjT6kYzEnK04yO9L+SdY2MjUVVHyy/Nuk1PUMCdytGjLg04m4fjNSW9iPxIfAwJyLVI9ZxjMypJFvyW3a/7De70fDv09kLVDzUtUuBQ7UZO47Kx8grCngegxVnOcLoiJhQzfAFl6h5/siWU=
   secret_access_key:
