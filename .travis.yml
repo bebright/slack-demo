@@ -2,22 +2,29 @@ language: node_js
 sudo: false
 dist: trusty
 node_js:
-  - '8'
-  - '7'
+- '8'
+- '7'
 cache:
   yarn: true
   directories:
-    - node_modules
+  - node_modules
 branches:
   only:
-    - develop
-    # - "/^release\\/.*$/"
-    - master
-install:
+  - develop
+  # - "/^release\\/.*$/"
+  - master
+install: 
   # - yarn
 script:
-  - yarn build
-  - yarn test
-  - yarn travis
+- yarn build
+- yarn test
+- yarn travis
+deploy:
+  provider: s3
+  access_key_id:
+    secure: BNV0Be1GpZX6dXNfmob9/f+wvhXyvUNBK0Ucq+L3kkYARGlmpfyR1ZpcVbdDD8qNpBxrTQVgu0IVkFTvD/O0qZKBf7lLBQwNtcyyNX2SDJrAmbZFWoJ2sxi3iN3QdDwvgo1g/zo9Dzh5iOjGNsjiNqx+tlNE96fmiVM1ApPzienzOOuXeSP7MxESlNJkkRKmH1uM+Q3ePrZ3BYYAc1L63jlZTxLHQcM178HbxZ75lW+ogtmQt7qmt+veWkRI1H3Eia+0u3g4AnWJ1iRN1fF3Pq6j0HCwz/NCZ6rD1Z0WeWWhCDIpfPIKLSO4J+GRQMoTmrtJyXzAsPTb57LTmedv4c+XkBquRld1uIN8aerreHliT698NFLHhtWdSrgj3nSdjFC45+TK4bqzTMlTlPQBKc0xEdeGR3KBzYMW0N1MbBmlni3fT2I/T8z4LsVK6RIytrnN5HiMtsymxxC/l1gP7lUeL8YFsdM1lumBeVQUF9N1qDdzKzxBcOFelt6WUwUqwmc7lQ0Hh9mf3l/Upx4+bshn/cuGkjT6kYzEnK04yO9L+SdY2MjUVVHyy/Nuk1PUMCdytGjLg04m4fjNSW9iPxIfAwJyLVI9ZxjMypJFvyW3a/7De70fDv09kLVDzUtUuBQ7UZO47Kx8grCngegxVnOcLoiJhQzfAFl6h5/siWU=
+  secret_access_key:
+    secure: NLsHwwoJNvGt1N9IYEOFDXh9WZ/Hekdm7YhEEOq1KX1haTNeDiYS9GIPatpDvN0q5BpDWrEnEsSK01ndN9RC2NEU6fpEjC9I3/ZggcBoVcCsTIHKJ2ToA2zl7QUvAXJvI8LsDOXpLc7qe69nd4BCA3FJZSQ8RfLa4TmqByqo3/ESvwWMrjckKbCEALD0agsD7m883jEKcF31Xp5jLpdt3k5Q5aUhWGWAUCy2bqG5Ra2vXfE4nbjumP1I1ZhNx8/5WDRJ8ULrbJJaT0QPlfP+EWsaAkJoezCn6b5j83FKk32Z56JBjUsHLjj1BtLsUVoU3VCRPVKamoUHmsSRHuNamSkRgp1TvFBA3x8QQmUAo4+looJEcBtddYe2RuH95VlLRRdj/O4Ph2pIrLFKC+YdQ5adtO4o9KCAWNmOmvdhFZHBiT03QcuoZV+jjlruU4vbL0l1dnjYoxfcOC7ksdBgg5OinxiKadXti2mFruYabnmo2bRyezjr+zGx/AnRBwN3xohRaCVMjE6lp4Z2CIY8Z3ejcDH5jrx1fqnhxu8t1uoj3orJpc1f+9jO4uNP3Q7Nodi8CWIdB5cii9+aamOR7yydGdD6kfp4Xm4xp1PqpORQ2mKIuJSjVPn63c9Cb7MZX5d2ApIATWZ+cvKjs+7aFWoWauqXQ6GdNjk1DABGjpU=
+  bucket: bright-travis-deploy
 notifications:
   slack: beebright:DxPZYpdd26Ni3vFGQFKngXK3
