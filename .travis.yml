@@ -10,23 +10,23 @@ cache:
 branches:
   only:
   - develop
-  # - "/^release\\/.*$/"
+  # - "/^release\\/.*$/"  
   - master
-install: 
-  # - yarn
+install:
+  # - yarn 
 script:
 - yarn build
 - yarn test
 - yarn travis
 deploy:
   provider: s3
-  local_dir: dist
-  access_key_id:
-    secure: BNV0Be1GpZX6dXNfmob9/f+wvhXyvUNBK0Ucq+L3kkYARGlmpfyR1ZpcVbdDD8qNpBxrTQVgu0IVkFTvD/O0qZKBf7lLBQwNtcyyNX2SDJrAmbZFWoJ2sxi3iN3QdDwvgo1g/zo9Dzh5iOjGNsjiNqx+tlNE96fmiVM1ApPzienzOOuXeSP7MxESlNJkkRKmH1uM+Q3ePrZ3BYYAc1L63jlZTxLHQcM178HbxZ75lW+ogtmQt7qmt+veWkRI1H3Eia+0u3g4AnWJ1iRN1fF3Pq6j0HCwz/NCZ6rD1Z0WeWWhCDIpfPIKLSO4J+GRQMoTmrtJyXzAsPTb57LTmedv4c+XkBquRld1uIN8aerreHliT698NFLHhtWdSrgj3nSdjFC45+TK4bqzTMlTlPQBKc0xEdeGR3KBzYMW0N1MbBmlni3fT2I/T8z4LsVK6RIytrnN5HiMtsymxxC/l1gP7lUeL8YFsdM1lumBeVQUF9N1qDdzKzxBcOFelt6WUwUqwmc7lQ0Hh9mf3l/Upx4+bshn/cuGkjT6kYzEnK04yO9L+SdY2MjUVVHyy/Nuk1PUMCdytGjLg04m4fjNSW9iPxIfAwJyLVI9ZxjMypJFvyW3a/7De70fDv09kLVDzUtUuBQ7UZO47Kx8grCngegxVnOcLoiJhQzfAFl6h5/siWU=
+  access_key_id: AKIAIA2J7HXUI52NHMHA
   secret_access_key:
-    secure: NLsHwwoJNvGt1N9IYEOFDXh9WZ/Hekdm7YhEEOq1KX1haTNeDiYS9GIPatpDvN0q5BpDWrEnEsSK01ndN9RC2NEU6fpEjC9I3/ZggcBoVcCsTIHKJ2ToA2zl7QUvAXJvI8LsDOXpLc7qe69nd4BCA3FJZSQ8RfLa4TmqByqo3/ESvwWMrjckKbCEALD0agsD7m883jEKcF31Xp5jLpdt3k5Q5aUhWGWAUCy2bqG5Ra2vXfE4nbjumP1I1ZhNx8/5WDRJ8ULrbJJaT0QPlfP+EWsaAkJoezCn6b5j83FKk32Z56JBjUsHLjj1BtLsUVoU3VCRPVKamoUHmsSRHuNamSkRgp1TvFBA3x8QQmUAo4+looJEcBtddYe2RuH95VlLRRdj/O4Ph2pIrLFKC+YdQ5adtO4o9KCAWNmOmvdhFZHBiT03QcuoZV+jjlruU4vbL0l1dnjYoxfcOC7ksdBgg5OinxiKadXti2mFruYabnmo2bRyezjr+zGx/AnRBwN3xohRaCVMjE6lp4Z2CIY8Z3ejcDH5jrx1fqnhxu8t1uoj3orJpc1f+9jO4uNP3Q7Nodi8CWIdB5cii9+aamOR7yydGdD6kfp4Xm4xp1PqpORQ2mKIuJSjVPn63c9Cb7MZX5d2ApIATWZ+cvKjs+7aFWoWauqXQ6GdNjk1DABGjpU=
+    secure: JPDcEKISOrS4YK31WC/v0Oo8/tjNoDINiz0W59ioZkMGrDDgvQkBxUJV/n0kYy2PBhDRtRqpC5sj8T8FkvXU2/DELihj/4laIDtG+annphRhvKAmjuXxHlBxzC6UfLoPSD/xvMUR43EQsMJLfSkN2mSSD1caKkq4BvEig2bXsyHCewmtsUY/R8kD/91zxmU5dW0RGxJuy8KOxe32w36/jlYSOlFYBcoSAnIOUr+c8tsiM5KUufAyIC4AYFKiaW/eMXPV0YtBk4dP3UhphNM6dEqV0zTM7k3sgYFrIEFbUxLz4QN3pnzAxR9U04SQ4/1wYQMWGwtlNyM7ouCtFWtkdA6pLo47+4pe/MMI4yMi4NonvyQK4FE7GSB1OMOqiTOqnFr+DpfUxhjWCURHlTnygyISVMXHTBRF/prTL5QTM5RMon7sri7ovR67IoMHzNojGl9hsWL0ElDirh5V6A62MliajZGr2xQmwivNCqhCrqqSKjN9j+NHNqpieSL9XkePHra5+eu7W319ScAbC83s5sj0j1byl8vvYGfC0EujxCYnBS+RYxYNLPDGxnQzmVh78BxetuwvhLZJO+4AfMDnSyIwuuQAGSnC6zLABuZpyP/tXzUaottqOqJQtBlI95gGvQ4Z7F+aN7S6T9OfPEkTVATtbaL1wQBSEF1vFIJoTZo=
   bucket: bright-travis-deploy
-  region: ap-northeast-1
-  skip_cleanup: true
+  local-dir: dist
+  acl: private
+  on:
+    repo: bebright/slack-demo
 notifications:
   slack: beebright:DxPZYpdd26Ni3vFGQFKngXK3
